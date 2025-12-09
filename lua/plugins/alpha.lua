@@ -1,0 +1,63 @@
+return {
+  "goolord/alpha-nvim",
+  event = "VimEnter",
+  dependencies = { "nvim-tree/nvim-web-devicons" },
+  opts = function()
+    local dashboard = require("alpha.themes.dashboard")
+
+    dashboard.section.header.val = {
+      "            ██████   █████ █████   █████ █████ ██████   ██████            ",
+      "           ▒▒██████ ▒▒███ ▒▒███   ▒▒███ ▒▒███ ▒▒██████ ██████             ",
+      "            ▒███▒███ ▒███  ▒███    ▒███  ▒███  ▒███▒█████▒███             ",
+      "            ▒███▒▒███▒███  ▒███    ▒███  ▒███  ▒███▒▒███ ▒███             ",
+      "            ▒███ ▒▒██████  ▒▒███   ███   ▒███  ▒███ ▒▒▒  ▒███             ",
+      "            ▒███  ▒▒█████   ▒▒▒█████▒    ▒███  ▒███      ▒███             ",
+      "            █████  ▒▒█████    ▒▒███      █████ █████     █████            ",
+      "           ▒▒▒▒▒    ▒▒▒▒▒      ▒▒▒      ▒▒▒▒▒ ▒▒▒▒▒     ▒▒▒▒▒             ",
+      "                                                                          ",
+      "II                   ______________________________                  II   ",
+      "II.._|      | `-.  | `.  -_-_ _-_  _-  _- -_ -  .'|   |.'|     |  _..II   ",
+      "II   `-.._  |    |`!  |`.  -_ -__ -_ _- _-_-  .'  |.;'   |   _.!-'|  II   ",
+      "II      | `-!._  |  `;!  ;. _______________ ,'| .-' |   _!.i'     |  II   ",
+      "II..__  |     |`-!._ | `.| |_______________||.\"'|  _!.;'   |     _|..II  ",
+      "II   |``\"..__ |    |`\";.| i|I|10000011100|I|'| _!-|   |   _|..-|'    II ",
+      "II   |      |``--..|_ | `;!|o|0101101o101|o|.'j   |_..!-'|     |     II   ",
+      "II   |      |    |   |`-,!_|I|01100'11000|I||.!-;'  |    |     |     II   ",
+      "II___|______|____!.,.!,.!,!|o|101o # 1o10|o|,!,.!.,.!..__|_____|_____II   ",
+      "II      |     |    |  |  | |I|00100,01101|I|| |   |   |    |      |  II   ",
+      "II      |     |    |..!-;'i|o|0001o0011o1|o| |`-..|   |    |      |  II   ",
+      "II      |    _!.-j'  | _!,\"|I|1<>1001o111|I||!._|  `i-!.._ |      |  II  ",
+      "II     _!.-'|    | _.\"|  !;|o|11101o10100|o|`.| `-._|    |``-.._  |  II  ",
+      "II..-i'     |  _.''|  !-| !|I|010o1111o01|I|.|`-. | ``._ |     |``\"..II  ",
+      "II   |      |.|    |.|  !| |o|010100o1100|o||`. |`!   | `\".    |     II  ",
+      "II   |  _.-'  |  .'  |.' |/|I|0011o0011o1|I|! |`!  `,.|    |-._|     II   ",
+      "II  _!\"'|     !.'|  .'| .'||o|00010100101|o| \\|  `. | `._  |   `-._  II ",
+      "II-'    |   .'   |.|  |/| /                 \\|`.  |`!    |.|      |`-II  ",
+      "II      |_.'|   .' | .' |/                   \\  \\ |  `.  | `._-LSD|  II ",
+      "II     .'   | .'   |/|  /                     \\ |`!   |`.|    `.  |  II  ",
+      "II  _.'     !'|   .' | /                       \\|  `  |  `.    |`.|  II  ",
+      "II @@@@@@@@@@@@@@@@@@@@@ welcome motherfucker @@@@@@@@@@@@@@@@@@@@@@ II   ",
+    }
+    dashboard.section.header.opts.hl = "String"
+
+    dashboard.section.buttons.val = {
+        dashboard.button("e", "  Новый файл", ":enew <CR>"),
+        dashboard.button("f", "  Найти файл", ":Telescope find_files <CR>"),
+        dashboard.button("t", "  Файловое дерево", ":NvimTreeToggle <CR>"),
+        dashboard.button("l", "  Менеджер плагинов", ":Lazy <CR>"),
+        dashboard.button("q", "  Выход", ":qa <CR>"),
+    }
+    dashboard.section.buttons.opts.hl = "Keyword"
+
+    dashboard.config.layout = {
+      { type = "padding", val = 4 },
+      dashboard.section.header,
+      { type = "padding", val = 2 },
+      dashboard.section.buttons,
+      { type = "padding", val = 1 },
+      dashboard.section.footer,
+    }
+
+    return dashboard.config
+  end,
+}

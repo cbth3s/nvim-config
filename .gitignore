@@ -1,0 +1,23 @@
+# General
+*.swp
+*.swo
+*~
+.DS_Store
+*/.DS_Store
+
+# Lazy.nvim cache/state (if stored locally)
+/lazy-lock.json.bak
+
+# NVIM v0.10+ data paths
+/plugin/
+/doc/
+/syntax/
+
+# Directories that might be created by plugins
+/undo/
+/sessions/
+/spell/
+/coverage/
+
+# Logs
+*.log
